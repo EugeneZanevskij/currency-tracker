@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
 module.exports = {
-	entry: "./index.jsx",
+	entry: "./src/index.jsx",
 	mode: "development",
 	output: {
 		path: path.resolve(__dirname, "./dist"),
@@ -13,18 +13,6 @@ module.exports = {
 		extensions: [".js", ".jsx", ".json"],
 	},
 	target: "web",
-	devServer: {
-		port: "3000",
-		static: {
-			directory: path.join(__dirname, "public"),
-		},
-		client: {
-			overlay: false,
-		},
-		open: true,
-		hot: true,
-		liveReload: true,
-	},
 	module: {
 		rules: [
 			{
