@@ -20,6 +20,10 @@ module.exports = {
 				use: [MiniCssExtractPlugin.loader, "style-loader", "css-loader"],
 			},
 			{
+				test: /\.(png|jp(e*)g|svg|gif)$/,
+				type: "asset/resource",
+			},
+			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				use: "babel-loader",
