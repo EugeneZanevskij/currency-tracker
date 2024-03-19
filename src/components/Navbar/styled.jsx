@@ -4,9 +4,10 @@ export const NavbarContainer = styled.nav`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 100%;
+	width: 85%;
+	margin: 0 auto;
 	gap: 2rem;
-	padding: 1rem 3rem;
+	padding: 1rem 0;
 `;
 
 export const Logotype = styled.img`
@@ -23,7 +24,7 @@ export const NavLinksContainer = styled.ul`
 
 	a {
 		text-decoration: none;
-		color: black;
+		color: #ffffff;
 
 		&:hover {
 			color: #35cf35;
