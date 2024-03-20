@@ -20,5 +20,5 @@ export const CurrenciesList = styled.div`
 	flex-direction: row;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	gap: 1.5rem;
+	gap: 2rem;
 `;

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { CurrenciesContainer, CurrenciesList, CurrenciesTitle } from "./styled";
+import CurrencyCard from "../CurrencyCard";
 
 function CurrencyCards({ title, currencies }) {
 	return (
@@ -8,7 +9,7 @@ function CurrencyCards({ title, currencies }) {
 			<CurrenciesTitle>{title}</CurrenciesTitle>
 			<CurrenciesList>
 				{currencies.map((currency) => {
-					return <div key={currency}>{currency}</div>;
+					return <CurrencyCard key={currency} title={currency} />;
 				})}
 			</CurrenciesList>
 		</CurrenciesContainer>
