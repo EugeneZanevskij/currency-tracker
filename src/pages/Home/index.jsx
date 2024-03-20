@@ -1,7 +1,8 @@
 import React from "react";
+import CurrencySection from "../../components/CurrencySection";
 
 function Home() {
-	return <div>Home</div>;
+	return <CurrencySection />;
 }
 
 export default Home;
