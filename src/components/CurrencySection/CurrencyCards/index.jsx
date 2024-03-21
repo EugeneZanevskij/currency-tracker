@@ -4,9 +4,13 @@ import { CurrenciesContainer, CurrenciesList, CurrenciesTitle } from "./styled";
 import CurrencyCard from "../CurrencyCard";
 import { getRateValue } from "../../../utils/rateValuesUtility";
 
-function CurrencyCards({ title, ratesData, cardsData }) {
+function CurrencyCards({ title, ratesData, cardsData, onClick }) {
 	const getRatesValue = (id, ratesValue) => {
 		return getRateValue(ratesData, id, ratesValue);
+	};
+
+	const handleCardClick = (id, img) => () => {
+		onClick({ id, img });
 	};
 
 	return (
@@ -20,6 +24,7 @@ function CurrencyCards({ title, ratesData, cardsData }) {
 							title={card.title}
 							value={getRatesValue(card.id, card.rateValue)}
 							img={card.img}
+							onClick={handleCardClick(card.id, card.img)}
 						/>
 					);
 				})}
@@ -33,6 +38,7 @@ CurrencyCards.propTypes = {
 	// eslint-disable-next-line react/require-default-props
 	ratesData: PropTypes.object,
 	cardsData: PropTypes.arrayOf(PropTypes.object).isRequired,
+	onClick: PropTypes.func.isRequired,
 };
 
 export default CurrencyCards;

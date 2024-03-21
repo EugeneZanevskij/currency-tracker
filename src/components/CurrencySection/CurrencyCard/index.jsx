@@ -8,9 +8,9 @@ import {
 	CurrencyValue,
 } from "./styled";
 
-function CurrencyCard({ title, value, img }) {
+function CurrencyCard({ title, value, img, onClick }) {
 	return (
-		<CurrencyCardContainer>
+		<CurrencyCardContainer onClick={onClick}>
 			<CurrencyIcon
 				src={
 					img ||
@@ -30,6 +30,7 @@ CurrencyCard.propTypes = {
 	title: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
 	img: PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired,
 };
 
 export default CurrencyCard;
