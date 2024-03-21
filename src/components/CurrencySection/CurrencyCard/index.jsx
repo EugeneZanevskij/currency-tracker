@@ -8,10 +8,16 @@ import {
 	CurrencyValue,
 } from "./styled";
 
-function CurrencyCard({ title, value }) {
+function CurrencyCard({ title, value, img }) {
 	return (
 		<CurrencyCardContainer>
-			<CurrencyIcon src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png" />
+			<CurrencyIcon
+				src={
+					img ||
+					"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png"
+				}
+				alt={title}
+			/>
 			<CurrencyInfo>
 				<CurrencyTitle>1 {title}</CurrencyTitle>
 				<CurrencyValue>{value}</CurrencyValue>
@@ -23,6 +29,7 @@ function CurrencyCard({ title, value }) {
 CurrencyCard.propTypes = {
 	title: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
+	img: PropTypes.string.isRequired,
 };
 
 export default CurrencyCard;

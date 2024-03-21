@@ -19,6 +19,7 @@ function CurrencyCards({ title, ratesData, cardsData }) {
 							key={card.id}
 							title={card.title}
 							value={getRatesValue(card.id, card.rateValue)}
+							img={card.img}
 						/>
 					);
 				})}
