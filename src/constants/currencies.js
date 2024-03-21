@@ -1,9 +1,11 @@
 export const STOCKS_DATA = [
 	{
+		id: "IBOV",
 		title: "Bovespa Index",
 		rateValue: "0.15%",
 	},
 	{
+		id: "IFIX",
 		title: "IFIX",
 		rateValue: "0.15%",
 	},
