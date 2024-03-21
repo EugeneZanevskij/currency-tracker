@@ -5,8 +5,8 @@ import CurrencyCard from "../CurrencyCard";
 import getRateValue from "../../../utils/rateValuesUtility";
 
 function CurrencyCards({ title, ratesData, cardsData }) {
-	const getRatesValue = (id) => {
-		return getRateValue(ratesData, id);
+	const getRatesValue = (id, ratesValue) => {
+		return getRateValue(ratesData, id, ratesValue);
 	};
 
 	return (
@@ -18,7 +18,7 @@ function CurrencyCards({ title, ratesData, cardsData }) {
 						<CurrencyCard
 							key={card.id}
 							title={card.title}
-							value={getRatesValue(card.id)}
+							value={getRatesValue(card.id, card.rateValue)}
 						/>
 					);
 				})}
@@ -29,7 +29,8 @@ function CurrencyCards({ title, ratesData, cardsData }) {
 
 CurrencyCards.propTypes = {
 	title: PropTypes.string.isRequired,
-	ratesData: PropTypes.object.isRequired,
+	// eslint-disable-next-line react/require-default-props
+	ratesData: PropTypes.object,
 	cardsData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
