@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { CurrenciesContainer, CurrenciesList, CurrenciesTitle } from "./styled";
 import CurrencyCard from "../CurrencyCard";
-import getRateValue from "../../../utils/rateValuesUtility";
+import { getRateValue } from "../../../utils/rateValuesUtility";
 
 function CurrencyCards({ title, ratesData, cardsData }) {
 	const getRatesValue = (id, ratesValue) => {
