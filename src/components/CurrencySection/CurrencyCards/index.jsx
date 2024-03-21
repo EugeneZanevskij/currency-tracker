@@ -2,14 +2,25 @@ import React from "react";
 import PropTypes from "prop-types";
 import { CurrenciesContainer, CurrenciesList, CurrenciesTitle } from "./styled";
 import CurrencyCard from "../CurrencyCard";
+import getRateValue from "../../../utils/rateValuesUtility";
 
-function CurrencyCards({ title, currencies }) {
+function CurrencyCards({ title, ratesData, cardsData }) {
+	const getRatesValue = (id) => {
+		return getRateValue(ratesData, id);
+	};
+
 	return (
 		<CurrenciesContainer>
 			<CurrenciesTitle>{title}</CurrenciesTitle>
 			<CurrenciesList>
-				{currencies.map((currency) => {
-					return <CurrencyCard key={currency} title={currency} />;
+				{cardsData.map((card) => {
+					return (
+						<CurrencyCard
+							key={card.id}
+							title={card.title}
+							value={getRatesValue(card.id)}
+						/>
+					);
 				})}
 			</CurrenciesList>
 		</CurrenciesContainer>
@@ -18,7 +29,8 @@ function CurrencyCards({ title, currencies }) {
 
 CurrencyCards.propTypes = {
 	title: PropTypes.string.isRequired,
-	currencies: PropTypes.arrayOf(PropTypes.object).isRequired,
+	ratesData: PropTypes.object.isRequired,
+	cardsData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default CurrencyCards;
