@@ -1,10 +1,10 @@
-const getRateValue = (rates, name, rateValue) => {
-	if (rates && rates[name]) {
-		const value = `$ ${Number(rates[name].value).toFixed(2)}`;
+export function getValue(rates, id) {
+	return rates[id].value;
+}
 
-		return value;
+export const getRateValue = (rates, name, rateValue) => {
+	if (rates && rates[name]) {
+		return `$ ${(1 / getValue(rates, name)).toFixed(3)}`;
 	}
 	return rateValue || "0.00";
 };
-
-export default getRateValue;
