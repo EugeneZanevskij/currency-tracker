@@ -10,6 +10,7 @@ import {
 } from "../../utils/cachingUtilities";
 import getCurrencies from "../../services/currencyService";
 import { getReversedValue } from "../../utils/rateValuesUtility";
+import CurrencyModal from "./CurrencyModal";
 
 const CACHE_LIFETIME = getEnvVars("cacheLifetime");
 const CACHE_CURRENCY_KEY = getEnvVars("cacheCurrencyKey");
@@ -72,11 +73,12 @@ function CurrencySection() {
 				onClick={handleCardClick}
 			/>
 			{isModalOpen && (
-				<>
-					<p>{exchangeRate * 1000}</p>
-					<p>{currency.id}</p>
-					<img src={currency.img} alt={currency.id} />
-				</>
+				<CurrencyModal
+					id={currency.id}
+					img={currency.img}
+					exchangeRate={exchangeRate}
+					onClose={() => setIsModalOpen(false)}
+				/>
 			)}
 		</CurrencySectionContainer>
 	);
