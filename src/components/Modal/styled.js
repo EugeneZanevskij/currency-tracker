@@ -20,7 +20,7 @@ export const ModalForm = styled.div`
 	background-color: #393939;
 	border: 1px solid #e0e0e0;
 	border-radius: 1rem;
-	padding: 1.25rem;
+	padding: 1.5rem 3rem;
 	position: relative;
 `;
 
