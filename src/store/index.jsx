@@ -14,10 +14,13 @@ function AppThemeProvider({ children }) {
 		saveCache(CACHE_THEME_KEY, theme);
 	}, [theme]);
 
+	const themeMemo = React.useMemo(
+		() => ({ theme, setTheme }),
+		[theme, setTheme]
+	);
+
 	return (
-		<ThemeContext.Provider value={{ theme, setTheme }}>
-			{children}
-		</ThemeContext.Provider>
+		<ThemeContext.Provider value={themeMemo}>{children}</ThemeContext.Provider>
 	);
 }
 
