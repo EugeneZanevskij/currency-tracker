@@ -3,12 +3,14 @@ import PropTypes from "prop-types";
 import { IoMdClose } from "react-icons/io";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import { CloseButton, ModalContainer, ModalForm } from "./styled";
+import usePortal from "../../hooks/usePortal";
 
 function Modal({ onClose, children }) {
+	const { render } = usePortal("modal-root");
 	const modalRef = useRef(null);
 	useOnClickOutside(modalRef, onClose);
 
-	return (
+	return render(
 		<ModalContainer>
 			<ModalForm ref={modalRef}>
 				<CloseButton onClick={onClose}>
