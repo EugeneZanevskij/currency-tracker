@@ -27,11 +27,11 @@ export const NavLinksContainer = styled.ul`
 		color: ${({ theme }) => theme.textColor};
 
 		&:hover {
-			color: ${({ theme }) => theme.darkGreen};
+			color: ${({ theme }) => theme.green};
 		}
 
 		&.active {
-			color: ${({ theme }) => theme.green};
+			color: ${({ theme }) => theme.darkGreen};
 			font-weight: bold;
 			text-decoration: underline;
 			text-underline-offset: 5px;

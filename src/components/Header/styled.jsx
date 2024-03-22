@@ -7,7 +7,11 @@ export const HeaderContainer = styled.header`
 	align-items: center;
 	gap: 1rem;
 	padding: 1rem;
-	background: linear-gradient(252.93deg, #2479408a 11.77%, #121212 91.12%);
+	background: linear-gradient(
+		252.93deg,
+		${({ theme }) => theme.emeraldGreen} 11.77%,
+		${({ theme }) => theme.lightBlack} 91.12%
+	);
 `;
 
 export const TextContainer = styled.div`
@@ -19,14 +23,19 @@ export const TextContainer = styled.div`
 export const HeaderTitle = styled.h1`
 	text-align: right;
 	font-size: 4.75rem;
-	background: linear-gradient(90deg, #00ce2c 1%, #aedf23 70%, #a3dc00 99%);
+	background: linear-gradient(
+		90deg,
+		${({ theme }) => theme.green} 1%,
+		${({ theme }) => theme.yellowish} 70%,
+		${({ theme }) => theme.lightGreen} 99%
+	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 `;
 
 export const HeaderSubtitle = styled.p`
 	font-size: 1.625rem;
-	color: #d9d9d9;
+	color: ${({ theme }) => theme.lightGray};
 	opacity: 0.8;
 	width: 18.875rem;
 	text-align: center;
