@@ -1,8 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const Global = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
   * {
     margin: 0;
     padding: 0;
@@ -10,7 +8,7 @@ const Global = createGlobalStyle`
   }
 
   body {
-    background: #030304;
+    background: ${({ theme }) => theme.backgroundColor};
     font-family: 'Poppins', sans-serif;
   }
 `;
