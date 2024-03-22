@@ -1,5 +1,5 @@
 function getCache(cacheKey) {
-	return JSON.parse(localStorage.getItem(cacheKey)) || {};
+	return JSON.parse(localStorage.getItem(cacheKey)) || undefined;
 }
 
 function saveCache(cacheKey, cacheValue) {
@@ -11,6 +11,7 @@ function removeCache(cacheKey) {
 }
 
 function isCacheValid(cacheEntry) {
+	if (!cacheEntry) return false;
 	return new Date().getTime() < cacheEntry.expirationTime;
 }
 
