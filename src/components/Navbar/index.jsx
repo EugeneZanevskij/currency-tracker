@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { ThemeContext } from "../../store";
 import NAVBAR from "../../constants/nav";
 import {
 	Logotype,
@@ -10,6 +11,11 @@ import {
 import logo from "../../assets/icons/logo.svg";
 
 function Navbar() {
+	const { theme, setTheme } = useContext(ThemeContext);
+
+	const toggleTheme = () => {
+		setTheme(theme === "light" ? "dark" : "light");
+	};
 	return (
 		<NavbarContainer>
 			<Logotype src={logo} alt="logo" />
@@ -23,7 +29,7 @@ function Navbar() {
 					);
 				})}
 			</NavLinksContainer>
-			<SwitchContainer>1</SwitchContainer>
+			<SwitchContainer onClick={toggleTheme}>1</SwitchContainer>
 		</NavbarContainer>
 	);
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import AppLayout from "../../layouts/AppLayout";
@@ -6,10 +6,12 @@ import NAVBAR from "../../constants/nav";
 import ROUTES from "../../constants/routes";
 import NotFound from "../../pages/Notfound";
 import THEME from "../../constants/themes";
+import { ThemeContext } from "../../store";
 
 function App() {
+	const { theme } = useContext(ThemeContext);
 	return (
-		<ThemeProvider theme={THEME.light}>
+		<ThemeProvider theme={THEME[theme]}>
 			<Routes>
 				<Route element={<AppLayout />}>
 					{Object.values(NAVBAR).map((item) => {
