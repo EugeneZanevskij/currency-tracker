@@ -24,14 +24,15 @@ export const NavLinksContainer = styled.ul`
 
 	a {
 		text-decoration: none;
-		color: #ffffff;
+		color: ${({ theme }) => theme.textColor};
 
 		&:hover {
-			color: #35cf35;
+			color: ${({ theme }) => theme.darkGreen};
 		}
 
 		&.active {
-			color: green;
+			color: ${({ theme }) => theme.green};
+			font-weight: bold;
 			text-decoration: underline;
 			text-underline-offset: 5px;
 		}
@@ -44,5 +45,5 @@ export const NavLinksContainer = styled.ul`
 
 export const SwitchContainer = styled.div`
 	width: 3rem;
-	background-color: #35cf35;
+	background-color: ${({ theme }) => theme.lightGreen};
 `;
