@@ -1,6 +1,7 @@
 const ENV_VARS = {
 	cacheLifetime: Number(process.env.CACHE_LIFETIME),
 	cacheCurrencyKey: process.env.CACHE_CURRENCY_KEY,
+	cacheThemeKey: process.env.CACHE_THEME_KEY,
 	currencyApiKey: process.env.CURRENCY_API_KEY,
 	currencyApiUrl: process.env.CURRENCY_API_URL,
 };
