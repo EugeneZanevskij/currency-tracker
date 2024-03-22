@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import Modal from "../../Modal";
 import {
@@ -20,6 +20,10 @@ function CurrencyModal({ id, img, exchangeRate, onClose }) {
 		setConvertedAmount(converted);
 	};
 
+	useEffect(() => {
+		inputRef.current.focus();
+	}, []);
+
 	return (
 		<Modal onClose={onClose}>
 			<ModalHeader>Convert USD to {id}:</ModalHeader>
@@ -34,7 +38,7 @@ function CurrencyModal({ id, img, exchangeRate, onClose }) {
 			</ModalContainer>
 			<ModalContainer>
 				<ModalImg src={img} alt={id} />
-				<ModalResult>{convertedAmount.toFixed(2)}</ModalResult>
+				<ModalResult>{convertedAmount.toFixed(3)}</ModalResult>
 				<ModalText>{id}</ModalText>
 			</ModalContainer>
 		</Modal>
