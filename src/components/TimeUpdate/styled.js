@@ -11,7 +11,7 @@ export const TimeUpdateContainer = styled.div`
 export const TimeUpdateText = styled.p`
 	font-size: 2rem;
 	width: 300;
-	color: #d9d9d9;
+	color: ${({ theme }) => theme.subTextColor};
 	opacity: 0.8;
 	font-weight: 300;
 `;

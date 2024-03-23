@@ -6,8 +6,8 @@ export const CurrencyCardContainer = styled.div`
 	align-items: center;
 	max-width: 32.5rem;
 	width: 100%;
-	background: #202025;
-	border: 1px solid #474747;
+	background: ${({ theme }) => theme.cardColor};
+	border: 1px solid ${({ theme }) => theme.darkGray};
 	border-radius: 0.5rem;
 	padding: 1.875rem;
 `;
@@ -26,11 +26,11 @@ export const CurrencyInfo = styled.div`
 export const CurrencyTitle = styled.h3`
 	font-weight: 400;
 	font-size: 2.1875rem;
-	color: #d9d9d9;
+	color: ${({ theme }) => theme.cardTextColor};
 `;
 
 export const CurrencyValue = styled.p`
 	font-weight: 300;
 	font-size: 2rem;
-	color: #a7b2c3;
+	color: ${({ theme }) => theme.percentsColor};
 `;

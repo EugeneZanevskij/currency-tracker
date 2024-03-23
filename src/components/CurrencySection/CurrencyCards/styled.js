@@ -7,9 +7,9 @@ export const CurrenciesContainer = styled.div`
 
 export const CurrenciesTitle = styled.h3`
 	font-size: 2rem;
-	color: #ffffff;
+	color: ${({ theme }) => theme.textColor};
 	padding-bottom: 1.5rem;
-	border-bottom: 2px solid #474747;
+	border-bottom: 2px solid ${({ theme }) => theme.darkGray};
 	margin-bottom: 1.5rem;
 	max-width: 32.5rem;
 	width: 100%;
