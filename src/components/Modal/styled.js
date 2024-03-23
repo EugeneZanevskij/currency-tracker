@@ -6,7 +6,7 @@ export const ModalContainer = styled.div`
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.5);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -17,8 +17,8 @@ export const ModalForm = styled.div`
 	flex-direction: column;
 	width: fit-content;
 	height: fit-content;
-	background-color: #393939;
-	border: 1px solid #e0e0e0;
+	background-color: ${({ theme }) => theme.modalColor};
+	border: 1px solid ${({ theme }) => theme.darkGray};
 	border-radius: 1rem;
 	padding: 1.5rem 3rem;
 	position: relative;
