@@ -8,7 +8,7 @@ export const LinksContainer = styled.div`
 
 export const Title = styled.h3`
 	font-size: 1.625rem;
-	color: #d9d9d9;
+	color: ${({ theme }) => theme.textColor};
 	max-width: 10rem;
 `;
 

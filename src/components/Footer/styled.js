@@ -35,19 +35,24 @@ export const FooterImage = styled.img`
 export const FooterTitle = styled.h3`
 	text-align: right;
 	font-size: 1.625rem;
-	background: linear-gradient(90deg, #00ce2c 1%, #aedf23 70%, #a3dc00 99%);
+	background: linear-gradient(
+		90deg,
+		${({ theme }) => theme.green} 1%,
+		${({ theme }) => theme.yellowish} 70%,
+		${({ theme }) => theme.lightGreen} 99%
+	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 `;
 
 export const FooterSubtitle = styled.p`
 	font-size: 1.5rem;
-	color: #ffffff;
+	color: ${({ theme }) => theme.textColor};
 `;
 
 export const Copyright = styled.p`
 	text-align: center;
-	color: #898989;
+	color: ${({ theme }) => theme.subTextColor};
 	font-size: 1.5rem;
 	padding-top: 3rem;
 	padding-bottom: 2rem;
