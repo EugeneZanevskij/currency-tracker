@@ -10,7 +10,10 @@ function CurrencyCards({ title, ratesData, cardsData, onClick }) {
 	};
 
 	const handleCardClick = (id, img) => () => {
-		onClick({ id, img });
+		if (onClick) {
+			return onClick(id, img);
+		}
+		return false;
 	};
 
 	return (
@@ -38,7 +41,8 @@ CurrencyCards.propTypes = {
 	// eslint-disable-next-line react/require-default-props
 	ratesData: PropTypes.object,
 	cardsData: PropTypes.arrayOf(PropTypes.object).isRequired,
-	onClick: PropTypes.func.isRequired,
+	// eslint-disable-next-line react/require-default-props
+	onClick: PropTypes.func,
 };
 
 export default CurrencyCards;

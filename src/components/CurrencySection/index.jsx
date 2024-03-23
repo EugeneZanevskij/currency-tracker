@@ -28,7 +28,7 @@ function CurrencySection() {
 		img: "",
 	});
 
-	const handleCardClick = ({ id, img }) => {
+	const handleCardClick = (id, img) => {
 		setIsModalOpen((prevState) => !prevState);
 		setExchangeRate(getValue(rates.data, id));
 		setCurrency({

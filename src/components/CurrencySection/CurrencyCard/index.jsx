@@ -30,7 +30,8 @@ CurrencyCard.propTypes = {
 	title: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
 	img: PropTypes.string.isRequired,
-	onClick: PropTypes.func.isRequired,
+	// eslint-disable-next-line react/require-default-props
+	onClick: PropTypes.func,
 };
 
 export default CurrencyCard;
