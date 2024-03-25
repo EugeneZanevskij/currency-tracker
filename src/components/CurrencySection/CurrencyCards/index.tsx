@@ -1,5 +1,5 @@
 import { CurrenciesContainer, CurrenciesList, CurrenciesTitle } from "./styled";
-import { CurrencyCard } from "../CurrencyCard";
+import { CurrencyCard } from "@components/CurrencySection/CurrencyCard";
 import { getRateValue } from "@utils/rateValuesUtility";
 
 interface ICurrencyCardsProps {

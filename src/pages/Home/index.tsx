@@ -1,4 +1,4 @@
-import { CurrencySection } from "../../components/CurrencySection";
+import { CurrencySection } from "@components/CurrencySection";
 
 export function Home() {
 	return <CurrencySection />;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CurrencySectionContainer from "./styled";
-import { CurrencyCards } from "./CurrencyCards";
+import { CurrencyCards } from "@components/CurrencySection/CurrencyCards";
 import { QUOTES_DATA, STOCKS_DATA } from "@constants/currencies";
 import { getEnvVars } from "@constants/env";
 import {
@@ -10,7 +10,7 @@ import {
 } from "@utils/cachingUtilities";
 import { getCurrencies } from "@services/currencyService";
 import { getValue } from "@utils/rateValuesUtility";
-import { CurrencyModal } from "./CurrencyModal";
+import { CurrencyModal } from "@components/CurrencySection/CurrencyModal";
 
 const CACHE_LIFETIME = +getEnvVars("cacheLifetime");
 const CACHE_CURRENCY_KEY = getEnvVars("cacheCurrencyKey");

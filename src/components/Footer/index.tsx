@@ -10,7 +10,7 @@ import {
 } from "./styled";
 import logo from "../../assets/icons/logo.svg";
 import FOOTER_DATA from "@constants/footer";
-import { FooterLinks } from "./FooterLinks";
+import { FooterLinks } from "@components/Footer/FooterLinks";
 
 const { title, subtitle, footer, copyright } = FOOTER_DATA;
 export function Footer() {

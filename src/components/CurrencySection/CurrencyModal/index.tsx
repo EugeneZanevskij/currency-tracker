@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Modal } from "../../Modal";
+import { Modal } from "@components/Modal";
 import {
 	ModalContainer,
 	ModalHeader,
