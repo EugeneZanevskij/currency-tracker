@@ -9,13 +9,11 @@ interface IThemeContext {
 
 const CACHE_THEME_KEY = getEnvVars("cacheThemeKey");
 
-const ThemeContext = createContext<IThemeContext>(
-	getCache(CACHE_THEME_KEY) || "dark"
-);
+const ThemeContext = createContext<IThemeContext | null>(null);
 
 function AppThemeProvider({ children }: { children: JSX.Element }) {
 	const [theme, setTheme] = useState<IThemeContext["theme"]>(
-		getCache(CACHE_THEME_KEY) || "dark"
+		(getCache(CACHE_THEME_KEY) as IThemeContext["theme"]) || "dark"
 	);
 
 	useEffect(() => {
