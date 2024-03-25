@@ -1,4 +1,3 @@
-import React from "react";
 import {
 	HeaderContainer,
 	HeaderSubtitle,
@@ -8,7 +7,7 @@ import {
 } from "./styled";
 import logo from "../../assets/icons/logo.svg";
 
-function Header() {
+export function Header() {
 	return (
 		<HeaderContainer>
 			<TextContainer>
@@ -21,5 +20,3 @@ function Header() {
 		</HeaderContainer>
 	);
 }
-
-export default Header;

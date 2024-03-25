@@ -30,6 +30,7 @@ export const HeaderTitle = styled.h1`
 		${({ theme }) => theme.lightGreen} 99%
 	);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 `;
 
