@@ -1,4 +1,3 @@
-import React from "react";
 import { LinkItem, LinksContainer, LinksList, Title } from "./styled";
 
 interface IFooterLinksProps {

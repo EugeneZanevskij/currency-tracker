@@ -42,6 +42,7 @@ export const FooterTitle = styled.h3`
 		${({ theme }) => theme.lightGreen} 99%
 	);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 `;
 
