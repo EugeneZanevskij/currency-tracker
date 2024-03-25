@@ -1,6 +1,6 @@
-import COLORS from "./styles/colors";
+import { COLORS } from "./styles/colors";
 
-const THEME = {
+export const THEME = {
 	light: {
 		...COLORS,
 		backgroundColor: COLORS.white,
@@ -22,5 +22,3 @@ const THEME = {
 		modalColor: COLORS.modalGray,
 	},
 };
-
-export default THEME;
