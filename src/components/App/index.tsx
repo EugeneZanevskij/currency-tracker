@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import { AppLayout } from "../../layouts/AppLayout";
+import { AppLayout } from "@layouts/AppLayout";
 import { NAVBAR } from "../../constants/nav";
 import { ROUTES } from "../../constants/routes";
 import { NotFound } from "@pages/Notfound";
