@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import ReactDOM from "react-dom";
 
-function usePortal(id) {
+function usePortal(id: string) {
 	const createdElement = useMemo(() => {
 		const element = document.createElement("div");
 		element.id = id;
@@ -21,7 +21,8 @@ function usePortal(id) {
 	}, [id]);
 
 	return {
-		render: (children) => ReactDOM.createPortal(children, createdElement),
+		render: (children: JSX.Element) =>
+			ReactDOM.createPortal(children, createdElement),
 	};
 }
 
