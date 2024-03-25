@@ -1,10 +1,10 @@
 import { CurrenciesContainer, CurrenciesList, CurrenciesTitle } from "./styled";
-import CurrencyCard from "../CurrencyCard";
+import { CurrencyCard } from "../CurrencyCard";
 import { getRateValue } from "../../../utils/rateValuesUtility";
 
 interface ICurrencyCardsProps {
 	title: string;
-	ratesData: ICurrencyData;
+	ratesData?: ICurrencyData;
 	cardsData: {
 		id: string;
 		title: string;
@@ -21,7 +21,7 @@ export function CurrencyCards({
 	onClick,
 }: ICurrencyCardsProps) {
 	const getRatesValue = (id: string, ratesValue: string | undefined) => {
-		return getRateValue(ratesData, id, ratesValue);
+		return getRateValue(ratesData!, id, ratesValue);
 	};
 
 	const handleCardClick = (id: string, img: string) => () => {
