@@ -6,7 +6,7 @@ import { NAVBAR } from "../../constants/nav";
 import { ROUTES } from "../../constants/routes";
 import { NotFound } from "@pages/Notfound";
 import { THEME } from "../../constants/themes";
-import { ThemeContext } from "../../store";
+import { ThemeContext } from "@store/index";
 
 export function App() {
 	const { theme } = useContext(ThemeContext);

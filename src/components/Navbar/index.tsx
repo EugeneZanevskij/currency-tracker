@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { ThemeContext } from "../../store";
+import { ThemeContext } from "@store/index";
 import { NAVBAR } from "../../constants/nav";
 import {
 	Logotype,

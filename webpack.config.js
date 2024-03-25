@@ -15,6 +15,7 @@ module.exports = {
 			"@pages": path.resolve(__dirname, "./src/pages"),
 			"@layouts": path.resolve(__dirname, "./src/layouts"),
 			"@utils": path.resolve(__dirname, "./src/utils"),
+			"@store": path.resolve(__dirname, "./src/store"),
 		},
 		extensions: [".tsx", ".ts", ".js", ".jsx", ".json"],
 	},
