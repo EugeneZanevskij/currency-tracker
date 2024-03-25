@@ -1,4 +1,3 @@
-import React from "react";
 import { TimeUpdateContainer, TimeUpdateText } from "./styled";
 import updateCircles from "../../assets/icons/updateCircles.svg";
 import { formatTime } from "../../utils/timeUtilities";
@@ -6,9 +5,9 @@ import { getCache, isCurrencyCacheValid } from "../../utils/cachingUtilities";
 import getEnvVars from "../../constants/env";
 
 const CACHE_CURRENCY_KEY = getEnvVars("cacheCurrencyKey");
-const CACHE_LIFETIME = getEnvVars("cacheLifetime");
+const CACHE_LIFETIME = +getEnvVars("cacheLifetime");
 
-function TimeUpdate() {
+export function TimeUpdate() {
 	const timeOfUpdate = () => {
 		const cachedData = getCache(CACHE_CURRENCY_KEY);
 		if (isCurrencyCacheValid(cachedData)) {
@@ -26,5 +25,3 @@ function TimeUpdate() {
 		</TimeUpdateContainer>
 	);
 }
-
-export default TimeUpdate;
