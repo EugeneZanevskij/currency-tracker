@@ -1,4 +1,4 @@
-export const formatTime = (milliseconds) => {
+export const formatTime = (milliseconds: number) => {
 	const date = new Date(milliseconds);
 	const hours = date.getHours();
 	const minutes = date.getMinutes();
@@ -9,7 +9,7 @@ export const formatTime = (milliseconds) => {
 	return `${formattedHours}:${formattedMinutes} ${timeName}`;
 };
 
-export const formatDate = (date) => {
+export const formatDate = (date: Date) => {
 	const day = date.getDate().toString().padStart(2, "0");
 	const month = (date.getMonth() + 1).toString().padStart(2, "0");
 	const year = date.getFullYear();
