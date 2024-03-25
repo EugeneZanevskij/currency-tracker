@@ -17,6 +17,6 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true
 	},
-	"include": ["src", "index.d.ts"],
+	"include": ["src", "custom.d.ts"],
 	"exclude": ["node_modules"]
 }
