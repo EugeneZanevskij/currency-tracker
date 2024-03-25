@@ -18,6 +18,7 @@ module.exports = {
 			"@store": path.resolve(__dirname, "./src/store"),
 			"@services": path.resolve(__dirname, "./src/services"),
 			"@hooks": path.resolve(__dirname, "./src/hooks"),
+			"@constants": path.resolve(__dirname, "./src/constants"),
 		},
 		extensions: [".tsx", ".ts", ".js", ".jsx", ".json"],
 	},

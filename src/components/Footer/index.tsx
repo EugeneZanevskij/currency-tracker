@@ -9,7 +9,7 @@ import {
 	FooterWrapper,
 } from "./styled";
 import logo from "../../assets/icons/logo.svg";
-import FOOTER_DATA from "../../constants/footer";
+import FOOTER_DATA from "@constants/footer";
 import { FooterLinks } from "./FooterLinks";
 
 const { title, subtitle, footer, copyright } = FOOTER_DATA;

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getEnvVars } from "../constants/env";
+import { getEnvVars } from "@constants/env";
 
 export async function getCurrencies(currencies: string) {
 	const CURRENCY_API_URL = getEnvVars("currencyApiUrl");

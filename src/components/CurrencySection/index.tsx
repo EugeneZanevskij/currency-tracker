@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import CurrencySectionContainer from "./styled";
 import { CurrencyCards } from "./CurrencyCards";
-import { QUOTES_DATA, STOCKS_DATA } from "../../constants/currencies";
-import { getEnvVars } from "../../constants/env";
+import { QUOTES_DATA, STOCKS_DATA } from "@constants/currencies";
+import { getEnvVars } from "@constants/env";
 import {
 	isCurrencyCacheValid,
 	getCache,
