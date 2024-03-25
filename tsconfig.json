@@ -3,7 +3,8 @@
 		"baseUrl": ".",
 		"paths": {
 			"@pages/*": ["src/pages/*"],
-			"@layouts/*": ["src/layouts/*"]
+			"@layouts/*": ["src/layouts/*"],
+			"@utils/*": ["src/utils/*"]
 		},
 		"target": "es5",
 		"useDefineForClassFields": true,

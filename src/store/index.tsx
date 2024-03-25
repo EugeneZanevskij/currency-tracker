@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useMemo } from "react";
-import { getCache, saveCache } from "../utils/cachingUtilities";
+import { getCache, saveCache } from "@utils/cachingUtilities";
 import { getEnvVars } from "../constants/env";
 
 interface IThemeContext {

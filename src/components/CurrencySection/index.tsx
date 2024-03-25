@@ -7,9 +7,9 @@ import {
 	isCurrencyCacheValid,
 	getCache,
 	saveCache,
-} from "../../utils/cachingUtilities";
+} from "@utils/cachingUtilities";
 import { getCurrencies } from "../../services/currencyService";
-import { getValue } from "../../utils/rateValuesUtility";
+import { getValue } from "@utils/rateValuesUtility";
 import { CurrencyModal } from "./CurrencyModal";
 
 const CACHE_LIFETIME = +getEnvVars("cacheLifetime");

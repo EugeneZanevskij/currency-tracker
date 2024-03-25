@@ -1,6 +1,6 @@
 import { CurrenciesContainer, CurrenciesList, CurrenciesTitle } from "./styled";
 import { CurrencyCard } from "../CurrencyCard";
-import { getRateValue } from "../../../utils/rateValuesUtility";
+import { getRateValue } from "@utils/rateValuesUtility";
 
 interface ICurrencyCardsProps {
 	title: string;
