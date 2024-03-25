@@ -1,9 +1,18 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-// eslint-disable-next-line react/prefer-stateless-function
-class ErrorBoundary extends React.Component {
-	constructor(props) {
+interface IErrorBoundaryProps {
+	children: JSX.Element;
+}
+
+interface IErrorBoundaryState {
+	hasError: boolean;
+}
+
+export class ErrorBoundary extends React.Component<
+	IErrorBoundaryProps,
+	IErrorBoundaryState
+> {
+	constructor(props: IErrorBoundaryProps) {
 		super(props);
 		this.state = { hasError: false };
 	}
@@ -25,9 +34,3 @@ class ErrorBoundary extends React.Component {
 		return children;
 	}
 }
-
-ErrorBoundary.propTypes = {
-	children: PropTypes.node.isRequired,
-};
-
-export default ErrorBoundary;
