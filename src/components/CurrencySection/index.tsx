@@ -8,7 +8,7 @@ import {
 	getCache,
 	saveCache,
 } from "@utils/cachingUtilities";
-import { getCurrencies } from "../../services/currencyService";
+import { getCurrencies } from "@services/currencyService";
 import { getValue } from "@utils/rateValuesUtility";
 import { CurrencyModal } from "./CurrencyModal";
 

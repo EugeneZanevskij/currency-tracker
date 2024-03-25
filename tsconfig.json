@@ -5,7 +5,8 @@
 			"@pages/*": ["src/pages/*"],
 			"@layouts/*": ["src/layouts/*"],
 			"@utils/*": ["src/utils/*"],
-			"@store/*": ["src/store/*"]
+			"@store/*": ["src/store/*"],
+			"@services/*": ["src/services/*"]
 		},
 		"target": "es5",
 		"useDefineForClassFields": true,
