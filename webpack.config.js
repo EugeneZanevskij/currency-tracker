@@ -11,6 +11,9 @@ module.exports = {
 		filename: "bundle.js",
 	},
 	resolve: {
+		alias: {
+			"@pages": path.resolve(__dirname, "./src/pages"),
+		},
 		extensions: [".tsx", ".ts", ".js", ".jsx", ".json"],
 	},
 	target: "web",

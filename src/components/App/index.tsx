@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { AppLayout } from "../../layouts/AppLayout";
 import { NAVBAR } from "../../constants/nav";
 import { ROUTES } from "../../constants/routes";
-import { NotFound } from "../../pages/Notfound";
+import { NotFound } from "@pages/Notfound";
 import { THEME } from "../../constants/themes";
 import { ThemeContext } from "../../store";
 

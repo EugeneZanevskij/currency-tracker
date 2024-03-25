@@ -1,6 +1,6 @@
-import { Bankcard } from "../pages/Bankcard";
-import { Home } from "../pages/Home";
-import { Timeline } from "../pages/Timeline";
+import { Bankcard } from "@pages/Bankcard";
+import { Home } from "@pages/Home";
+import { Timeline } from "@pages/Timeline";
 import { ROUTES } from "./routes";
 
 export const NAVBAR = {
