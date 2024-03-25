@@ -1,11 +1,14 @@
-import React, { useRef } from "react";
-import PropTypes from "prop-types";
+import { useRef } from "react";
 import { IoMdClose } from "react-icons/io";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import { CloseButton, ModalContainer, ModalForm } from "./styled";
 import usePortal from "../../hooks/usePortal";
 
-function Modal({ onClose, children }) {
+interface IModalProps {
+	onClose: () => void;
+	children: JSX.Element;
+}
+export function Modal({ onClose, children }: IModalProps) {
 	const { render } = usePortal("modal-root");
 	const modalRef = useRef(null);
 	useOnClickOutside(modalRef, onClose);
@@ -21,10 +24,3 @@ function Modal({ onClose, children }) {
 		</ModalContainer>
 	);
 }
-
-Modal.propTypes = {
-	onClose: PropTypes.func.isRequired,
-	children: PropTypes.node.isRequired,
-};
-
-export default Modal;

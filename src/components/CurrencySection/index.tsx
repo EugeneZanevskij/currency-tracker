@@ -10,7 +10,7 @@ import {
 } from "../../utils/cachingUtilities";
 import { getCurrencies } from "../../services/currencyService";
 import { getValue } from "../../utils/rateValuesUtility";
-import CurrencyModal from "./CurrencyModal";
+import { CurrencyModal } from "./CurrencyModal";
 
 const CACHE_LIFETIME = +getEnvVars("cacheLifetime");
 const CACHE_CURRENCY_KEY = getEnvVars("cacheCurrencyKey");
