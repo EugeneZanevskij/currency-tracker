@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CurrencySectionContainer from "./styled";
 import CurrencyCards from "./CurrencyCards";
 import { QUOTES_DATA, STOCKS_DATA } from "../../constants/currencies";
@@ -12,23 +12,23 @@ import getCurrencies from "../../services/currencyService";
 import { getValue } from "../../utils/rateValuesUtility";
 import CurrencyModal from "./CurrencyModal";
 
-const CACHE_LIFETIME = getEnvVars("cacheLifetime");
+const CACHE_LIFETIME = +getEnvVars("cacheLifetime");
 const CACHE_CURRENCY_KEY = getEnvVars("cacheCurrencyKey");
 
 function CurrencySection() {
-	const [rates, setRates] = useState({
+	const [rates, setRates] = useState<ICurrencyCache>({
 		expirationTime: new Date().getTime() + CACHE_LIFETIME,
 		data: {},
 	});
 
-	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [exchangeRate, setExchangeRate] = useState(0);
+	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+	const [exchangeRate, setExchangeRate] = useState<number>(0);
 	const [currency, setCurrency] = useState({
 		id: "",
 		img: "",
 	});
 
-	const handleCardClick = (id, img) => {
+	const handleCardClick = (id: string, img: string) => {
 		setIsModalOpen((prevState) => !prevState);
 		setExchangeRate(getValue(rates.data, id));
 		setCurrency({
@@ -43,7 +43,7 @@ function CurrencySection() {
 		const response = await getCurrencies(currencies);
 
 		setRates({
-			expirationDate: currentTime + CACHE_LIFETIME,
+			expirationTime: currentTime + CACHE_LIFETIME,
 			data: response,
 		});
 
