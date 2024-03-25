@@ -4,7 +4,7 @@ import CurrencyCards from "./CurrencyCards";
 import { QUOTES_DATA, STOCKS_DATA } from "../../constants/currencies";
 import getEnvVars from "../../constants/env";
 import {
-	isCacheValid,
+	isCurrencyCacheValid,
 	getCache,
 	saveCache,
 } from "../../utils/cachingUtilities";
@@ -56,7 +56,7 @@ function CurrencySection() {
 	useEffect(() => {
 		const cachedRates = getCache(CACHE_CURRENCY_KEY);
 
-		if (isCacheValid(cachedRates)) {
+		if (isCurrencyCacheValid(cachedRates)) {
 			setRates(cachedRates);
 		} else {
 			getRatesValue();
