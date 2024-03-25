@@ -11,10 +11,10 @@ import {
 } from "./styled";
 import logo from "../../assets/icons/logo.svg";
 import FOOTER_DATA from "../../constants/footer";
-import FooterLinks from "./FooterLinks";
+import { FooterLinks } from "./FooterLinks";
 
 const { title, subtitle, footer, copyright } = FOOTER_DATA;
-function Footer() {
+export function Footer() {
 	return (
 		<FooterContainer>
 			<FooterWrapper>
@@ -39,5 +39,3 @@ function Footer() {
 		</FooterContainer>
 	);
 }
-
-export default Footer;

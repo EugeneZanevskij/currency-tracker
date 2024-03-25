@@ -1,8 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { LinkItem, LinksContainer, LinksList, Title } from "./styled";
 
-function FooterLinks({ title, links }) {
+interface IFooterLinksProps {
+	title: string;
+	links: string[];
+}
+
+export function FooterLinks({ title, links }: IFooterLinksProps) {
 	return (
 		<LinksContainer>
 			<Title>{title}</Title>
@@ -14,10 +18,3 @@ function FooterLinks({ title, links }) {
 		</LinksContainer>
 	);
 }
-
-FooterLinks.propTypes = {
-	title: PropTypes.string.isRequired,
-	links: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-};
-
-export default FooterLinks;
