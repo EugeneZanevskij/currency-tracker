@@ -8,7 +8,7 @@ import {
 	NavbarContainer,
 	SwitchContainer,
 } from "./styled";
-import logo from "../../assets/icons/logo.svg";
+import logo from "@assets/icons/logo.svg";
 
 export function Navbar() {
 	const { theme, setTheme } = useContext(ThemeContext);

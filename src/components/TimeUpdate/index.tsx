@@ -1,5 +1,5 @@
 import { TimeUpdateContainer, TimeUpdateText } from "./styled";
-import updateCircles from "../../assets/icons/updateCircles.svg";
+import updateCircles from "@assets/icons/updateCircles.svg";
 import { formatTime } from "@utils/timeUtilities";
 import { getCache, isCurrencyCacheValid } from "@utils/cachingUtilities";
 import { getEnvVars } from "@constants/env";

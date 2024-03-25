@@ -8,7 +8,7 @@ import {
 	FooterTitleContainer,
 	FooterWrapper,
 } from "./styled";
-import logo from "../../assets/icons/logo.svg";
+import logo from "@assets/icons/logo.svg";
 import FOOTER_DATA from "@constants/footer";
 import { FooterLinks } from "@components/Footer/FooterLinks";
 

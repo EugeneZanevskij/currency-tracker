@@ -1,14 +1,14 @@
-import ifix from "../assets/cards/IFIX.svg";
-import bovespa from "../assets/cards/BovespaIcon.svg";
-import usd from "../assets/cards/DollarIcon.svg";
-import ars from "../assets/cards/PesoArgentinoIcon.svg";
-import cad from "../assets/cards/CanadianDollarIcon.svg";
-import jpy from "../assets/cards/YenIcon.svg";
-import aud from "../assets/cards/AustralianDollarIcon.svg";
-import cny from "../assets/cards/WonIcon.svg";
-import eur from "../assets/cards/EuroIcon.svg";
-import bitcoin from "../assets/cards/BitcoinIcon.svg";
-import lbp from "../assets/cards/LibraIcon.svg";
+import ifix from "@assets/cards/IFIX.svg";
+import bovespa from "@assets/cards/BovespaIcon.svg";
+import usd from "@assets/cards/DollarIcon.svg";
+import ars from "@assets/cards/PesoArgentinoIcon.svg";
+import cad from "@assets/cards/CanadianDollarIcon.svg";
+import jpy from "@assets/cards/YenIcon.svg";
+import aud from "@assets/cards/AustralianDollarIcon.svg";
+import cny from "@assets/cards/WonIcon.svg";
+import eur from "@assets/cards/EuroIcon.svg";
+import bitcoin from "@assets/cards/BitcoinIcon.svg";
+import lbp from "@assets/cards/LibraIcon.svg";
 
 export const STOCKS_DATA = [
 	{

@@ -20,6 +20,7 @@ module.exports = {
 			"@hooks": path.resolve(__dirname, "./src/hooks"),
 			"@constants": path.resolve(__dirname, "./src/constants"),
 			"@components": path.resolve(__dirname, "./src/components"),
+			"@assets": path.resolve(__dirname, "./src/assets"),
 		},
 		extensions: [".tsx", ".ts", ".js", ".jsx", ".json"],
 	},

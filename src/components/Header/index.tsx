@@ -5,7 +5,7 @@ import {
 	Logotype,
 	TextContainer,
 } from "./styled";
-import logo from "../../assets/icons/logo.svg";
+import logo from "@assets/icons/logo.svg";
 
 export function Header() {
 	return (
