@@ -15,7 +15,7 @@ import { CurrencyModal } from "./CurrencyModal";
 const CACHE_LIFETIME = +getEnvVars("cacheLifetime");
 const CACHE_CURRENCY_KEY = getEnvVars("cacheCurrencyKey");
 
-function CurrencySection() {
+export function CurrencySection() {
 	const [rates, setRates] = useState<ICurrencyCache>({
 		expirationTime: new Date().getTime() + CACHE_LIFETIME,
 		data: {},
@@ -83,5 +83,3 @@ function CurrencySection() {
 		</CurrencySectionContainer>
 	);
 }
-
-export default CurrencySection;

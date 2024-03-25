@@ -5,7 +5,7 @@ import { Header } from "../components/Header";
 import { TimeUpdate } from "../components/TimeUpdate";
 import { Footer } from "../components/Footer";
 
-function AppLayout() {
+export function AppLayout() {
 	return (
 		<>
 			<Global />
@@ -17,5 +17,3 @@ function AppLayout() {
 		</>
 	);
 }
-
-export default AppLayout;
