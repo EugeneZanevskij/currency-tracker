@@ -9,7 +9,7 @@ export function getReversedValue(rates: ICurrencyData, id: string) {
 export const getRateValue = (
 	rates: ICurrencyData,
 	name: string,
-	rateValue: string
+	rateValue: string | undefined
 ) => {
 	if (rates && rates[name]) {
 		return `$ ${(1 / getValue(rates, name)).toFixed(3)}`;
