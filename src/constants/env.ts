@@ -6,8 +6,6 @@ const ENV_VARS = {
 	currencyApiUrl: String(process.env.CURRENCY_API_URL),
 };
 
-const getEnvVars = (key: keyof typeof ENV_VARS) => {
+export const getEnvVars = (key: keyof typeof ENV_VARS) => {
 	return ENV_VARS[key];
 };
-
-export default getEnvVars;

@@ -1,7 +1,7 @@
 import axios from "axios";
-import getEnvVars from "../constants/env";
+import { getEnvVars } from "../constants/env";
 
-async function getCurrencies(currencies) {
+export async function getCurrencies(currencies: string) {
 	const CURRENCY_API_URL = getEnvVars("currencyApiUrl");
 	const CURRENCY_API_KEY = getEnvVars("currencyApiKey");
 	const headers = {
@@ -19,10 +19,8 @@ async function getCurrencies(currencies) {
 	try {
 		const response = await axios.get(apiUrl, { headers, params });
 		const data = await response.data;
-		return data.data;
+		return data.data as ICurrencyData;
 	} catch (error) {
-		return null;
+		console.log(error);
 	}
 }
-
-export default getCurrencies;

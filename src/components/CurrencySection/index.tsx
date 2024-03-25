@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import CurrencySectionContainer from "./styled";
 import { CurrencyCards } from "./CurrencyCards";
 import { QUOTES_DATA, STOCKS_DATA } from "../../constants/currencies";
-import getEnvVars from "../../constants/env";
+import { getEnvVars } from "../../constants/env";
 import {
 	isCurrencyCacheValid,
 	getCache,
 	saveCache,
 } from "../../utils/cachingUtilities";
-import getCurrencies from "../../services/currencyService";
+import { getCurrencies } from "../../services/currencyService";
 import { getValue } from "../../utils/rateValuesUtility";
 import CurrencyModal from "./CurrencyModal";
 
@@ -44,7 +44,7 @@ function CurrencySection() {
 
 		setRates({
 			expirationTime: currentTime + CACHE_LIFETIME,
-			data: response,
+			data: response!,
 		});
 
 		saveCache(CACHE_CURRENCY_KEY, {
