@@ -1,7 +1,7 @@
 import Bankcard from "../pages/Bankcard";
 import Home from "../pages/Home";
 import Timeline from "../pages/Timeline";
-import ROUTES from "./routes";
+import { ROUTES } from "./routes.ts";
 
 const NAVBAR = {
 	HOME: {
