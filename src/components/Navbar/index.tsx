@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { ThemeContext } from "../../store";
 import { NAVBAR } from "../../constants/nav";
@@ -20,16 +20,13 @@ function Navbar() {
 		<NavbarContainer>
 			<Logotype src={logo} alt="logo" />
 			<NavLinksContainer>
-				{Object.keys(NAVBAR).map((key) => {
-					const { link } = NAVBAR[key];
-					return (
-						<li key={key}>
-							<NavLink to={link}>{key}</NavLink>
-						</li>
-					);
-				})}
+				{Object.entries(NAVBAR).map(([key, { link }]) => (
+					<li key={key}>
+						<NavLink to={link}>{key}</NavLink>
+					</li>
+				))}
 			</NavLinksContainer>
-			<SwitchContainer onClick={toggleTheme}>1</SwitchContainer>
+			<SwitchContainer onClick={toggleTheme}>THEME</SwitchContainer>
 		</NavbarContainer>
 	);
 }
