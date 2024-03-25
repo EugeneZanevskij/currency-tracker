@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { IoMdClose } from "react-icons/io";
-import { useOnClickOutside } from "../../hooks/useOnClickOutside";
+import { useOnClickOutside } from "@hooks/useOnClickOutside";
 import { CloseButton, ModalContainer, ModalForm } from "./styled";
-import usePortal from "../../hooks/usePortal";
+import usePortal from "@hooks/usePortal";
 
 interface IModalProps {
 	onClose: () => void;
