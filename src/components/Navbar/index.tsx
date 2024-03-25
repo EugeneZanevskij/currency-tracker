@@ -10,7 +10,7 @@ import {
 } from "./styled";
 import logo from "../../assets/icons/logo.svg";
 
-function Navbar() {
+export function Navbar() {
 	const { theme, setTheme } = useContext(ThemeContext);
 
 	const toggleTheme = () => {
@@ -30,5 +30,3 @@ function Navbar() {
 		</NavbarContainer>
 	);
 }
-
-export default Navbar;
