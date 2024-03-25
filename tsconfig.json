@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"useDefineForClassFields": true,
+		"lib": ["ES2015", "DOM", "DOM.Iterable"],
+		"module": "commonjs",
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "react-jsx",
+		"allowJs": true,
+		"checkJs": false,
+		"outDir": "./dist",
+
+		/* Linting */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true
+	},
+	"include": ["src"],
+	"exclude": ["node_modules"]
+}
