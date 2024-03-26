@@ -1,5 +1,6 @@
 import React, { Component, createRef } from "react";
 import { Chart } from "chart.js/auto";
+import candlestickPlugin from "./candlestickPlugin";
 
 class TimelineChart extends Component {
 	chartRef = createRef();
@@ -94,6 +95,7 @@ class TimelineChart extends Component {
 					yAxisKey: "s",
 				},
 			},
+			plugins: [candlestickPlugin],
 		};
 
 		this.chart = new Chart(ctx, config);
