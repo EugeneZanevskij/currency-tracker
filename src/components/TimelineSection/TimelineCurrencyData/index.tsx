@@ -9,13 +9,14 @@ import {
 
 interface ITimelineCurrencyDataProps {
 	selectedCurrency: ICurrencyConst;
+	onClick: () => void;
 }
 
 export default class TimelineCurrencyData extends Component<ITimelineCurrencyDataProps> {
 	render() {
 		const { id, title, img } = this.props.selectedCurrency;
 		return (
-			<CurrencyContainer>
+			<CurrencyContainer onClick={this.props.onClick}>
 				<CurrencyImage src={img} alt={title} />
 				<CurrencyTextContainer>
 					<CurrencyTitle>{title}</CurrencyTitle>
