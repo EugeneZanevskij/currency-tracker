@@ -10,6 +10,12 @@ import eur from "@assets/cards/EuroIcon.svg";
 import bitcoin from "@assets/cards/BitcoinIcon.svg";
 import lbp from "@assets/cards/LibraIcon.svg";
 
+export const CURRENCY_DEFAULT = {
+	id: "USD",
+	img: usd,
+	title: "Commercial Dollar",
+};
+
 export const STOCKS_DATA = [
 	{
 		id: "IBOV",
