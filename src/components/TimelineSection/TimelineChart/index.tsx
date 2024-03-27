@@ -7,6 +7,7 @@ import {
 	Title,
 	Tooltip,
 	Legend,
+	ScriptableContext,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { chartOptions } from "./options";
@@ -20,6 +21,11 @@ ChartJS.register(
 	Tooltip,
 	Legend
 );
+
+interface ChartContextRaw {
+	o: number;
+	c: number;
+}
 
 class TimelineChart extends Component {
 	chartData = {
@@ -75,14 +81,15 @@ class TimelineChart extends Component {
 						s: [2.0, 2.1],
 					},
 				],
-				backgroundColor: (context) => {
-					const {
-						raw: { o, c },
-					} = context;
+				backgroundColor: (context: ScriptableContext<"bar">) => {
+					const { o, c } = context.raw as ChartContextRaw;
+					let color = "";
 					if (c >= o) {
-						return "rgba(0, 255, 0)";
+						color = "rgba(0, 255, 0)";
+					} else {
+						color = "rgba(255, 0, 0)";
 					}
-					return "rgba(255, 0, 0)";
+					return color;
 				},
 				borderColor: "rgba(0, 0, 0, 1)",
 				borderWidth: 2,

@@ -1,3 +1,12 @@
+import { TooltipItem } from "chart.js";
+
+interface CandleDataPoint {
+	o: number;
+	h: number;
+	l: number;
+	c: number;
+}
+
 export const chartOptions = {
 	type: "bar",
 	parsing: {
@@ -40,8 +49,10 @@ export const chartOptions = {
 		},
 		tooltip: {
 			callbacks: {
-				label: (context) => {
-					const data = context.dataset.data[context.dataIndex];
+				label: (context: TooltipItem<"bar">) => {
+					const data = context.dataset.data[
+						context.dataIndex
+					] as unknown as CandleDataPoint;
 					return `Open: ${data.o},  High: ${data.h}, Low: ${data.l}, Close: ${data.c}`;
 				},
 			},

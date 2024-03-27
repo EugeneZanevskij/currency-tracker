@@ -1,6 +1,13 @@
+import { Chart } from "chart.js";
+
+interface CandleDataPoint {
+	h: number;
+	l: number;
+}
+
 export const candlestickPlugin = {
 	id: "candlestick",
-	beforeDatasetsDraw(chart) {
+	beforeDatasetsDraw(chart: Chart) {
 		const {
 			ctx,
 			data,
@@ -12,6 +19,9 @@ export const candlestickPlugin = {
 		ctx.strokeStyle = "rgba(0, 0, 0, 1)";
 
 		data.datasets[0].data.forEach((_, index: number) => {
+			const currentData = data.datasets[0].data[
+				index
+			] as unknown as CandleDataPoint;
 			ctx.beginPath();
 			ctx.moveTo(
 				chart.getDatasetMeta(0).data[index].x,
@@ -19,7 +29,7 @@ export const candlestickPlugin = {
 			);
 			ctx.lineTo(
 				chart.getDatasetMeta(0).data[index].x,
-				y.getPixelForValue(data.datasets[0].data[index].h)
+				y.getPixelForValue(currentData.h)
 			);
 			ctx.stroke();
 
@@ -30,7 +40,7 @@ export const candlestickPlugin = {
 			);
 			ctx.lineTo(
 				chart.getDatasetMeta(0).data[index].x,
-				y.getPixelForValue(data.datasets[0].data[index].l)
+				y.getPixelForValue(currentData.l)
 			);
 			ctx.stroke();
 		});
