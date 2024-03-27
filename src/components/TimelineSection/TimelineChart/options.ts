@@ -1,4 +1,4 @@
-const chartOptions = {
+export const chartOptions = {
 	type: "bar",
 	parsing: {
 		xAxisKey: "x",
@@ -14,12 +14,12 @@ const chartOptions = {
 				color: "#888",
 				borderWidth: 1,
 			},
-			// ticks: {
-			//   autoSkip: true,
-			//   maxTicksLimit: 10,
-			//   maxRotation: 0,
-			//   minRotation: 0,
-			// },
+			ticks: {
+				autoSkip: true,
+				maxTicksLimit: 10,
+				maxRotation: 0,
+				minRotation: 0,
+			},
 		},
 		y: {
 			title: {
@@ -48,5 +48,3 @@ const chartOptions = {
 		},
 	},
 };
-
-export default chartOptions;

@@ -1,4 +1,4 @@
-const candlestickPlugin = {
+export const candlestickPlugin = {
 	id: "candlestick",
 	beforeDatasetsDraw(chart) {
 		const {
@@ -11,7 +11,7 @@ const candlestickPlugin = {
 		ctx.lineWidth = 2;
 		ctx.strokeStyle = "rgba(0, 0, 0, 1)";
 
-		data.datasets[0].data.forEach((_, index) => {
+		data.datasets[0].data.forEach((_, index: number) => {
 			ctx.beginPath();
 			ctx.moveTo(
 				chart.getDatasetMeta(0).data[index].x,
@@ -36,5 +36,3 @@ const candlestickPlugin = {
 		});
 	},
 };
-
-export default candlestickPlugin;
