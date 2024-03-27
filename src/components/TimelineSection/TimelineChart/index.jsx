@@ -1,6 +1,7 @@
 import React, { Component, createRef } from "react";
 import { Chart } from "chart.js/auto";
 import candlestickPlugin from "./candlestickPlugin";
+import chartOptions from "./options";
 
 class TimelineChart extends Component {
 	chartRef = createRef();
@@ -76,9 +77,9 @@ class TimelineChart extends Component {
 							raw: { o, c },
 						} = context;
 						if (c >= o) {
-							return "rgba(0, 255, 0, 0.5)";
+							return "rgba(0, 255, 0)";
 						}
-						return "rgba(255, 0, 0, 0.5)";
+						return "rgba(255, 0, 0)";
 					},
 					borderColor: "rgba(0, 0, 0, 1)",
 					borderWidth: 2,
@@ -89,12 +90,7 @@ class TimelineChart extends Component {
 		const config = {
 			type: "bar",
 			data: chartData,
-			options: {
-				parsing: {
-					xAxisKey: "x",
-					yAxisKey: "s",
-				},
-			},
+			options: chartOptions,
 			plugins: [candlestickPlugin],
 		};
 
