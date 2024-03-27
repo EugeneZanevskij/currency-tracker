@@ -34,6 +34,19 @@ const chartOptions = {
 			grace: 1,
 		},
 	},
+	plugins: {
+		legend: {
+			display: false,
+		},
+		tooltip: {
+			callbacks: {
+				label: (context) => {
+					const data = context.dataset.data[context.dataIndex];
+					return `Open: ${data.o},  High: ${data.h}, Low: ${data.l}, Close: ${data.c}`;
+				},
+			},
+		},
+	},
 };
 
 export default chartOptions;
