@@ -27,7 +27,7 @@ interface ChartContextRaw {
 	c: number;
 }
 
-class TimelineChart extends Component {
+export class TimelineChart extends Component {
 	chartData = {
 		labels: [
 			"2023-08-01",
@@ -107,5 +107,3 @@ class TimelineChart extends Component {
 		);
 	}
 }
-
-export default TimelineChart;
