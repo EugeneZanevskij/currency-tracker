@@ -9,3 +9,9 @@ interface ICurrencyData {
 		value: number;
 	};
 }
+
+interface ICurrencyConst {
+	id: string;
+	title: string;
+	img: string;
+}
