@@ -12,6 +12,7 @@ import {
 import { Bar } from "react-chartjs-2";
 import { chartOptions } from "./options";
 import { candlestickPlugin } from "./candlestickPlugin";
+import { getCache } from "@utils/cachingUtilities";
 
 ChartJS.register(
 	CategoryScale,
@@ -27,81 +28,58 @@ interface ChartContextRaw {
 	c: number;
 }
 
-export class TimelineChart extends Component {
-	chartData = {
-		labels: [
-			"2023-08-01",
-			"2023-08-02",
-			"2023-08-03",
-			"2023-08-04",
-			"2023-08-05",
-		],
-		datasets: [
-			{
-				label: "Weekly Sales",
-				data: [
-					{
-						x: new Date("2023-08-01").setHours(0, 0, 0, 0),
-						o: 1.25,
-						h: 2.25,
-						l: 1.0,
-						c: 2.0,
-						s: [1.25, 2.0],
+interface TimelineChartProps {
+	id: string;
+}
+
+export class TimelineChart extends Component<TimelineChartProps> {
+	createChartData = (chartData: ICurrencyChartData) => {
+		console.log(chartData);
+		return {
+			labels: Object.keys(chartData),
+			datasets: [
+				{
+					label: "Weekly Sales",
+					data: Object.keys(chartData).map((date) => {
+						const currencyData = chartData[date];
+						console.log({
+							x: Date.parse(date),
+							o: currencyData.open,
+							h: currencyData.high,
+							l: currencyData.low,
+							c: currencyData.close,
+							s: [currencyData.open, currencyData.close] as [number, number],
+						});
+						return {
+							x: new Date(date).setHours(0, 0, 0, 0),
+							o: currencyData.open,
+							h: currencyData.high,
+							l: currencyData.low,
+							c: currencyData.close,
+							s: [currencyData.open, currencyData.close] as [number, number],
+						};
+					}),
+					backgroundColor: (context: ScriptableContext<"bar">) => {
+						const { o, c } = context.raw as ChartContextRaw;
+						let color = c >= o ? "rgba(0, 255, 0)" : "rgba(255, 0, 0)";
+						return color;
 					},
-					{
-						x: new Date("2023-08-02").setHours(0, 0, 0, 0),
-						o: 2.0,
-						h: 2.25,
-						l: 1.0,
-						c: 2.1,
-						s: [2.0, 2.1],
-					},
-					{
-						x: new Date("2023-08-03").setHours(0, 0, 0, 0),
-						o: 2.1,
-						h: 2.25,
-						l: 1.0,
-						c: 1.9,
-						s: [2.1, 1.9],
-					},
-					{
-						x: new Date("2023-08-04").setHours(0, 0, 0, 0),
-						o: 1.9,
-						h: 2.25,
-						l: 1.0,
-						c: 2.0,
-						s: [1.9, 2.0],
-					},
-					{
-						x: new Date("2023-08-05").setHours(0, 0, 0, 0),
-						o: 2.0,
-						h: 2.25,
-						l: 1.0,
-						c: 2.1,
-						s: [2.0, 2.1],
-					},
-				],
-				backgroundColor: (context: ScriptableContext<"bar">) => {
-					const { o, c } = context.raw as ChartContextRaw;
-					let color = "";
-					if (c >= o) {
-						color = "rgba(0, 255, 0)";
-					} else {
-						color = "rgba(255, 0, 0)";
-					}
-					return color;
+					borderColor: "rgba(0, 0, 0, 1)",
+					borderWidth: 2,
 				},
-				borderColor: "rgba(0, 0, 0, 1)",
-				borderWidth: 2,
-			},
-		],
+			],
+		};
 	};
 
 	render() {
+		const { id } = this.props;
+
+		if (!getCache(id)) return null;
+
 		return (
 			<Bar
 				options={chartOptions}
-				data={this.chartData}
+				data={this.createChartData(getCache(id) as ICurrencyChartData)}
 				plugins={[candlestickPlugin]}
 			/>
 		);
