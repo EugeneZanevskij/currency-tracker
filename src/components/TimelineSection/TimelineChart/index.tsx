@@ -36,29 +36,33 @@ export class TimelineChart extends Component<TimelineChartProps> {
 	createChartData = (chartData: ICurrencyChartData) => {
 		console.log(chartData);
 		return {
-			labels: Object.keys(chartData),
+			labels: Object.keys(chartData).sort(
+				(a, b) => Date.parse(a) - Date.parse(b)
+			),
 			datasets: [
 				{
 					label: "Weekly Sales",
-					data: Object.keys(chartData).map((date) => {
-						const currencyData = chartData[date];
-						console.log({
-							x: Date.parse(date),
-							o: currencyData.open,
-							h: currencyData.high,
-							l: currencyData.low,
-							c: currencyData.close,
-							s: [currencyData.open, currencyData.close] as [number, number],
-						});
-						return {
-							x: new Date(date).setHours(0, 0, 0, 0),
-							o: currencyData.open,
-							h: currencyData.high,
-							l: currencyData.low,
-							c: currencyData.close,
-							s: [currencyData.open, currencyData.close] as [number, number],
-						};
-					}),
+					data: Object.keys(chartData)
+						.sort((a, b) => Date.parse(a) - Date.parse(b))
+						.map((date) => {
+							const currencyData = chartData[date];
+							console.log({
+								x: Date.parse(date),
+								o: currencyData.open,
+								h: currencyData.high,
+								l: currencyData.low,
+								c: currencyData.close,
+								s: [currencyData.open, currencyData.close] as [number, number],
+							});
+							return {
+								x: new Date(date).setHours(0, 0, 0, 0),
+								o: currencyData.open,
+								h: currencyData.high,
+								l: currencyData.low,
+								c: currencyData.close,
+								s: [currencyData.open, currencyData.close] as [number, number],
+							};
+						}),
 					backgroundColor: (context: ScriptableContext<"bar">) => {
 						const { o, c } = context.raw as ChartContextRaw;
 						let color = c >= o ? "rgba(0, 255, 0)" : "rgba(255, 0, 0)";
