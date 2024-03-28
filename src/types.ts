@@ -15,3 +15,19 @@ interface ICurrencyConst {
 	title: string;
 	img: string;
 }
+
+interface IInputValue {
+	openPriceInput: string;
+	highPriceInput: string;
+	lowPriceInput: string;
+	closePriceInput: string;
+}
+
+interface ICurrencyChartData {
+	[key: string]: {
+		open: number;
+		high: number;
+		low: number;
+		close: number;
+	};
+}
