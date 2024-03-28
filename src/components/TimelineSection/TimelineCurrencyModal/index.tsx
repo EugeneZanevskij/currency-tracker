@@ -1,5 +1,10 @@
 import { Modal } from "@components/Modal";
-import { INITIAL_INPUT_VALUES, INPUT_CONFIGURATION } from "@constants/timeline";
+import {
+	INITIAL_INPUT_VALUES,
+	INPUT_CONFIGURATION,
+	MAX_INPUT_VALUE,
+	MIN_INPUT_VALUE,
+} from "@constants/timeline";
 import { Component } from "react";
 import { Button, Text } from "./styled";
 import { ModalInput } from "./ModalInput";
@@ -59,6 +64,23 @@ export default class TimelineCurrencyModal extends Component<
 			this.setState({ inputValue: INITIAL_INPUT_VALUES });
 		}
 	}
+	checkValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const { name, value } = event.target;
+
+		if (
+			isNaN(+value) ||
+			+value < MIN_INPUT_VALUE ||
+			+value > MAX_INPUT_VALUE ||
+			value.trim() === ""
+		) {
+			this.setState((prevState) => ({
+				inputValue: {
+					...prevState.inputValue,
+					[name]: 0,
+				},
+			}));
+		}
+	};
 
 	componentDidMount() {
 		this.loadCachedData(this.state.currentDate);
@@ -78,6 +100,7 @@ export default class TimelineCurrencyModal extends Component<
 							name={name}
 							value={inputValue[name as keyof IInputValue]}
 							onChange={this.handleInputChange}
+							checkValue={this.checkValue}
 						/>
 					))}
 					<Button onClick={() => onTimelineAdd(currentDate, inputValue)}>

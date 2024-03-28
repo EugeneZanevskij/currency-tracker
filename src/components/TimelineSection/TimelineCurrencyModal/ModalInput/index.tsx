@@ -6,13 +6,14 @@ interface ModalInputProps {
 	name: string;
 	value: number;
 	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	checkValue: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 export class ModalInput extends Component<ModalInputProps> {
 	handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		this.props.onChange(event);
 	};
 	render() {
-		const { label, name, value } = this.props;
+		const { label, name, value, checkValue } = this.props;
 		return (
 			<>
 				<Label htmlFor={name}>{label}</Label>
@@ -22,6 +23,7 @@ export class ModalInput extends Component<ModalInputProps> {
 					name={name}
 					value={value}
 					onChange={this.handleInputChange}
+					onBlur={checkValue}
 				/>
 			</>
 		);

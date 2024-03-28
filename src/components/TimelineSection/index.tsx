@@ -38,7 +38,7 @@ export class TimelineSection extends Component {
 		const close = Number(inputValue.closePriceInput);
 
 		if (high < open || high < low || high < close || low > open || low > close)
-			console.log("here");
+			return;
 
 		console.log(currencyData);
 		currencyData[formattedDate] = {
