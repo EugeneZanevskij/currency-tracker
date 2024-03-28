@@ -10,6 +10,7 @@ import { Button, Text } from "./styled";
 import { ModalInput } from "./ModalInput";
 import { formatDate } from "@utils/timeUtilities";
 import { getCache } from "@utils/cachingUtilities";
+import { DateChanger } from "../DateChanger";
 
 interface TimelineCurrencyModalProps {
 	selectedCurrency: ICurrencyConst;
@@ -64,6 +65,7 @@ export default class TimelineCurrencyModal extends Component<
 			this.setState({ inputValue: INITIAL_INPUT_VALUES });
 		}
 	}
+
 	checkValue = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
 
@@ -82,17 +84,34 @@ export default class TimelineCurrencyModal extends Component<
 		}
 	};
 
+	handleCLickAddDate = () => {
+		this.props.onTimelineAdd(this.state.currentDate, this.state.inputValue);
+		this.handleUpdateDate(1);
+	};
+
+	handleUpdateDate = (change: number) => {
+		const { currentDate } = this.state;
+		const updatedDate = new Date(currentDate);
+		updatedDate.setDate(updatedDate.getDate() + change);
+		this.setState({ currentDate: updatedDate });
+		this.loadCachedData(updatedDate);
+	};
+
 	componentDidMount() {
 		this.loadCachedData(this.state.currentDate);
 	}
 
 	render() {
-		const { onClose, onTimelineAdd } = this.props;
+		const { onClose } = this.props;
 		const { remainItems, inputValue, currentDate } = this.state;
 		return (
 			<Modal onClose={onClose}>
 				<>
 					<Text>{remainItems} dates remains</Text>
+					<DateChanger
+						currentDate={currentDate}
+						onDateChange={this.handleUpdateDate}
+					/>
 					{INPUT_CONFIGURATION.map(({ label, name }) => (
 						<ModalInput
 							key={name}
@@ -103,9 +122,7 @@ export default class TimelineCurrencyModal extends Component<
 							checkValue={this.checkValue}
 						/>
 					))}
-					<Button onClick={() => onTimelineAdd(currentDate, inputValue)}>
-						Add date
-					</Button>
+					<Button onClick={this.handleCLickAddDate}>Add date</Button>
 				</>
 			</Modal>
 		);
