@@ -16,7 +16,7 @@ export const candlestickPlugin = {
 
 		ctx.save();
 		ctx.lineWidth = 2;
-		ctx.strokeStyle = "rgba(0, 0, 0, 1)";
+		ctx.strokeStyle = "#888";
 
 		data.datasets[0].data.forEach((_, index: number) => {
 			const currentData = data.datasets[0].data[
