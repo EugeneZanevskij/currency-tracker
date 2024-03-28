@@ -1,5 +1,5 @@
 export function getCache(cacheKey: string) {
-	return JSON.parse(localStorage.getItem(cacheKey)!) || "";
+	return JSON.parse(localStorage.getItem(cacheKey)!) || undefined;
 }
 
 export function saveCache(cacheKey: string, cacheValue: any) {
