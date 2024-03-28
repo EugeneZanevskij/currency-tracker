@@ -40,7 +40,7 @@ export const chartOptions = {
 				borderWidth: 1,
 			},
 			beginAtZero: true,
-			grace: 1,
+			grace: 10,
 		},
 	},
 	plugins: {
