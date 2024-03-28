@@ -17,10 +17,10 @@ interface ICurrencyConst {
 }
 
 interface IInputValue {
-	openPriceInput: string;
-	highPriceInput: string;
-	lowPriceInput: string;
-	closePriceInput: string;
+	openPriceInput: number;
+	highPriceInput: number;
+	lowPriceInput: number;
+	closePriceInput: number;
 }
 
 interface ICurrencyChartData {
