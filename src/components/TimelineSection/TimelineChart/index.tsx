@@ -81,6 +81,12 @@ export class TimelineChart extends Component<TimelineChartProps> {
 				options={chartOptions}
 				data={this.createChartData(getCache(id) as ICurrencyChartData)}
 				plugins={[candlestickPlugin]}
+				style={{
+					maxWidth: "60rem",
+					width: "100%",
+					maxHeight: "30rem",
+					height: "100%",
+				}}
 			/>
 		);
 	}

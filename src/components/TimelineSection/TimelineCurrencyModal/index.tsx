@@ -47,9 +47,8 @@ export default class TimelineCurrencyModal extends Component<
 
 	loadCachedData(date: Date) {
 		const formattedDate = formatDate(date);
-		const cachedData: ICurrencyChartData = getCache(
-			this.props.selectedCurrency.id
-		);
+		const cachedData: ICurrencyChartData =
+			getCache(this.props.selectedCurrency.id) || {};
 		const cachedDataDate = cachedData[formattedDate];
 
 		if (cachedDataDate) {
