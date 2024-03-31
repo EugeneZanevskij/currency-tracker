@@ -34,6 +34,14 @@ export default class TimelineCurrencyModal extends Component<
 		remainItems: 0,
 	};
 
+	getNumberOfRemainItems() {
+		const selectedCurrencyId = this.props.selectedCurrency.id;
+		const currencyData = getCache(selectedCurrencyId);
+		const numberOfEntries = Object.keys(currencyData).length;
+		const remainItems = 30 - numberOfEntries;
+		return Math.max(0, remainItems);
+	}
+
 	handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
 
@@ -98,6 +106,7 @@ export default class TimelineCurrencyModal extends Component<
 
 	componentDidMount() {
 		this.loadCachedData(this.state.currentDate);
+		this.setState({ remainItems: this.getNumberOfRemainItems() });
 	}
 
 	render() {
