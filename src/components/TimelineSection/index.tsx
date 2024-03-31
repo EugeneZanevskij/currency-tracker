@@ -5,14 +5,38 @@ import { CURRENCY_DEFAULT } from "@constants/currencies";
 import TimelineCurrencyData from "./TimelineCurrencyData";
 import TimelineCurrencyModal from "./TimelineCurrencyModal";
 import { formatDate } from "@utils/timeUtilities";
-import { getCache, saveCache } from "@utils/cachingUtilities";
+import { getCache, removeCache, saveCache } from "@utils/cachingUtilities";
 import { Container } from "./styled";
+import { observer } from "@components/Observer";
 
 export class TimelineSection extends Component {
 	state = {
 		selectedCurrency: CURRENCY_DEFAULT,
 		isModalOpen: false,
+		isDataEntered: false,
 		showChart: false,
+		notification: {
+			message: "",
+			color: "",
+		},
+		showNotification: false,
+	};
+
+	update() {
+		this.setState({ showNotification: true });
+		setTimeout(() => {
+			this.setState({ showNotification: false });
+		}, 3000);
+	}
+
+	handleShowChart = () => {
+		this.setState({ showChart: true });
+	};
+
+	handleClearChartData = () => {
+		this.setState({ showChart: false });
+		removeCache(this.state.selectedCurrency.id);
+		this.checkChartDataStatus();
 	};
 
 	handleCurrencyChange = (newCurrency: ICurrencyConst) => {
@@ -29,8 +53,6 @@ export class TimelineSection extends Component {
 		const formattedDate = formatDate(currentDate);
 		const { id } = this.state.selectedCurrency;
 
-		console.log(id, formattedDate, inputValue);
-
 		const currencyData: ICurrencyChartData = getCache(id) || {};
 
 		const high = Number(inputValue.highPriceInput);
@@ -38,21 +60,65 @@ export class TimelineSection extends Component {
 		const open = Number(inputValue.openPriceInput);
 		const close = Number(inputValue.closePriceInput);
 
-		if (high < open || high < low || high < close || low > open || low > close)
+		if (
+			high < open ||
+			high < low ||
+			high < close ||
+			low > open ||
+			low > close
+		) {
+			this.setState({
+				notification: {
+					message: "Incorrect values",
+					backgroundColor: "red",
+				},
+			});
+			observer.notify();
 			return;
+		}
 
-		console.log(currencyData);
 		currencyData[formattedDate] = {
 			open,
 			high,
 			low,
 			close,
 		};
-
-		console.log(currencyData[formattedDate]);
-
 		saveCache(id, currencyData);
+		this.checkChartDataStatus();
 	};
+
+	checkChartDataStatus() {
+		const selectedCurrencyId = this.state.selectedCurrency.id;
+		const currencyData = getCache(selectedCurrencyId);
+		const numberOfEntries = Object.keys(currencyData).length;
+
+		if (numberOfEntries >= 30) {
+			this.handleModalToggle();
+			this.setState(
+				{
+					notification: {
+						message: "Data for this currency is provided",
+						backgroundColor: "green",
+					},
+					isDataEntered: true,
+				},
+				() => {
+					observer.notify();
+				}
+			);
+		} else {
+			this.setState({ isChartCanBuild: false });
+		}
+	}
+
+	componentDidMount(): void {
+		observer.subscribe(this);
+		this.checkChartDataStatus();
+	}
+
+	componentWillUnmount(): void {
+		observer.unsubscribe(this);
+	}
 
 	render() {
 		const { selectedCurrency, isModalOpen, showChart } = this.state;
