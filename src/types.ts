@@ -31,3 +31,8 @@ interface ICurrencyChartData {
 		close: number;
 	};
 }
+
+interface INotification {
+	message: string;
+	color: string;
+}
