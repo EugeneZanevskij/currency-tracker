@@ -13,7 +13,7 @@ export class TimelineSection extends Component {
 	state = {
 		selectedCurrency: CURRENCY_DEFAULT,
 		isModalOpen: false,
-		isDataEntered: false,
+		isDataProvided: false,
 		showChart: false,
 		notification: {
 			message: "",
@@ -70,7 +70,7 @@ export class TimelineSection extends Component {
 			this.setState({
 				notification: {
 					message: "Incorrect values",
-					backgroundColor: "red",
+					color: "red",
 				},
 			});
 			observer.notify();
@@ -98,16 +98,23 @@ export class TimelineSection extends Component {
 				{
 					notification: {
 						message: "Data for this currency is provided",
-						backgroundColor: "green",
+						color: "green",
 					},
-					isDataEntered: true,
+					isDataProvided: true,
 				},
 				() => {
 					observer.notify();
 				}
 			);
 		} else {
-			this.setState({ isChartCanBuild: false });
+			this.setState({
+				isDataProvided: false,
+				notification: {
+					message: `Date №${numberOfEntries} is added`,
+					color: "green",
+				},
+			});
+			observer.notify();
 		}
 	}
 
