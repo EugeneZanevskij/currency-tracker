@@ -6,7 +6,7 @@ import TimelineCurrencyData from "./TimelineCurrencyData";
 import TimelineCurrencyModal from "./TimelineCurrencyModal";
 import { formatDate } from "@utils/timeUtilities";
 import { getCache, removeCache, saveCache } from "@utils/cachingUtilities";
-import { Container } from "./styled";
+import { Button, Buttons, Container } from "./styled";
 import { observer } from "@components/Observer";
 
 export class TimelineSection extends Component {
@@ -128,7 +128,8 @@ export class TimelineSection extends Component {
 	}
 
 	render() {
-		const { selectedCurrency, isModalOpen, showChart } = this.state;
+		const { selectedCurrency, isModalOpen, showChart, isDataProvided } =
+			this.state;
 		return (
 			<Container>
 				<TimelineCurrencySelect
@@ -145,6 +146,12 @@ export class TimelineSection extends Component {
 						onTimelineAdd={this.handleTimelineAdd}
 						onClose={this.handleModalToggle}
 					/>
+				)}
+				{isDataProvided && (
+					<Buttons>
+						<Button onClick={this.handleShowChart}>Show chart</Button>
+						<Button onClick={this.handleClearChartData}>Clear chart</Button>
+					</Buttons>
 				)}
 				{showChart && <TimelineChart id={selectedCurrency.id} />}
 				<TimelineChart id={selectedCurrency.id} />
