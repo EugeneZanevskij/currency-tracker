@@ -104,23 +104,27 @@ export default class TimelineCurrencyModal extends Component<
 		const { onClose } = this.props;
 		const { remainItems, inputValue, currentDate } = this.state;
 		return (
-			<Modal onClose={onClose}>
+			<Modal id={"timeline-modal-root"} onClose={onClose}>
 				<>
 					<Text>{remainItems} dates remains</Text>
 					<DateChanger
 						currentDate={currentDate}
 						onDateChange={this.handleUpdateDate}
 					/>
-					{INPUT_CONFIGURATION.map(({ label, name }) => (
-						<ModalInput
-							key={name}
-							label={label}
-							name={name}
-							value={inputValue[name as keyof IInputValue]}
-							onChange={this.handleInputChange}
-							checkValue={this.checkValue}
-						/>
-					))}
+					{INPUT_CONFIGURATION.map(
+						(
+							{ label, name } // TODO:протипизировать
+						) => (
+							<ModalInput
+								key={name}
+								label={label}
+								name={name}
+								value={inputValue[name as keyof IInputValue]}
+								onChange={this.handleInputChange}
+								checkValue={this.checkValue}
+							/>
+						)
+					)}
 					<Button onClick={this.handleCLickAddDate}>Add date</Button>
 				</>
 			</Modal>

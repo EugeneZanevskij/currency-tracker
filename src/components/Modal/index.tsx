@@ -6,10 +6,11 @@ import usePortal from "@hooks/usePortal";
 
 interface IModalProps {
 	onClose: () => void;
+	id: string;
 	children: JSX.Element;
 }
-export function Modal({ onClose, children }: IModalProps) {
-	const { render } = usePortal("modal-root");
+export function Modal({ onClose, id, children }: IModalProps) {
+	const { render } = usePortal(id);
 	const modalRef = useRef(null);
 	useOnClickOutside(modalRef, onClose);
 

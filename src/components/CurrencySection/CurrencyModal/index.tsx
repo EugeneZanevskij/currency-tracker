@@ -36,7 +36,7 @@ export function CurrencyModal({
 	}, []);
 
 	return (
-		<Modal onClose={onClose}>
+		<Modal id={"currency-modal-root"} onClose={onClose}>
 			<>
 				<ModalHeader>Convert USD to {id}:</ModalHeader>
 				<ModalContainer>
