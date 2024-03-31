@@ -31,7 +31,7 @@ export default class TimelineCurrencyModal extends Component<
 	state = {
 		currentDate: new Date(),
 		inputValue: INITIAL_INPUT_VALUES,
-		remainItems: 0,
+		remainItems: this.getNumberOfRemainItems(),
 	};
 
 	getNumberOfRemainItems() {
@@ -93,7 +93,11 @@ export default class TimelineCurrencyModal extends Component<
 
 	handleCLickAddDate = () => {
 		this.props.onTimelineAdd(this.state.currentDate, this.state.inputValue);
-		this.handleUpdateDate(1);
+		const remainingItems = this.getNumberOfRemainItems();
+		if (remainingItems !== this.state.remainItems) {
+			this.setState({ remainItems: remainingItems });
+			this.handleUpdateDate(1);
+		}
 	};
 
 	handleUpdateDate = (change: number) => {
@@ -106,7 +110,10 @@ export default class TimelineCurrencyModal extends Component<
 
 	componentDidMount() {
 		this.loadCachedData(this.state.currentDate);
-		this.setState({ remainItems: this.getNumberOfRemainItems() });
+	}
+
+	componentDidUpdate() {
+		console.log("componentDidUpdate");
 	}
 
 	render() {
