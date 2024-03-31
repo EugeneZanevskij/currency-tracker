@@ -9,6 +9,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, "./dist"),
 		filename: "bundle.js",
+		publicPath: "/",
 	},
 	resolve: {
 		alias: {
@@ -29,7 +30,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.(css)$/,
-				use: [MiniCssExtractPlugin.loader, "style-loader", "css-loader"],
+				use: [MiniCssExtractPlugin.loader, "css-loader"],
 			},
 			{
 				test: /\.(png|jp(e*)g|svg|gif)$/,

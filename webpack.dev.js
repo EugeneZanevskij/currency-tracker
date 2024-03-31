@@ -8,13 +8,13 @@ module.exports = merge(config, {
 	devServer: {
 		port: "3000",
 		static: {
-			directory: path.join(__dirname, "public"),
+			directory: path.join(__dirname, "dist"),
 		},
 		client: {
 			overlay: false,
 		},
 		open: true,
 		hot: true,
-		liveReload: true,
+		historyApiFallback: true,
 	},
 });

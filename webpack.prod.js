@@ -3,4 +3,5 @@ const common = require("./webpack.config");
 
 module.exports = merge(common, {
 	mode: "production",
+	// TODO: минификаторы добавить
 });
