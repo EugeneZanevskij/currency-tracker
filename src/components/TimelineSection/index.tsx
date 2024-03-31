@@ -8,6 +8,7 @@ import { formatDate } from "@utils/timeUtilities";
 import { getCache, removeCache, saveCache } from "@utils/cachingUtilities";
 import { Button, Buttons, Container } from "./styled";
 import { observer } from "@components/Observer";
+import { NotificationsModal } from "./NotificationsModal";
 
 export class TimelineSection extends Component {
 	state = {
@@ -128,8 +129,14 @@ export class TimelineSection extends Component {
 	}
 
 	render() {
-		const { selectedCurrency, isModalOpen, showChart, isDataProvided } =
-			this.state;
+		const {
+			selectedCurrency,
+			isModalOpen,
+			showChart,
+			isDataProvided,
+			notification,
+			showNotification,
+		} = this.state;
 		return (
 			<Container>
 				<TimelineCurrencySelect
@@ -154,6 +161,7 @@ export class TimelineSection extends Component {
 					</Buttons>
 				)}
 				{showChart && <TimelineChart id={selectedCurrency.id} />}
+				{showNotification && <NotificationsModal notification={notification} />}
 				<TimelineChart id={selectedCurrency.id} />
 			</Container>
 		);
