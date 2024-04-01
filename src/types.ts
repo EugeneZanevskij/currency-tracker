@@ -36,3 +36,10 @@ interface INotification {
 	message: string;
 	color: string;
 }
+
+interface IMapboxMap {
+	center: [number, number];
+	style: string;
+	zoom: number;
+	attributionControl: boolean;
+}
