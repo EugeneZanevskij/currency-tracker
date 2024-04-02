@@ -16,6 +16,7 @@ export const Title = styled.h2`
 `;
 
 export const CurrencyTitle = styled.h3`
+	color: ${({ theme }) => theme.textColor};
 	font-size: 1.5rem;
 	font-weight: 400;
 	margin-bottom: 1rem;
