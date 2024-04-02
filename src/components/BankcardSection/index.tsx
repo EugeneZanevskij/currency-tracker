@@ -1,20 +1,23 @@
 import { Component } from "react";
 import MapComponent from "./Map";
 import { QUOTES_DATA } from "@constants/currencies";
-import { BankcardSectionContainer, Title } from "./styled";
+import { BankcardSectionContainer, Title, CurrencyTitle } from "./styled";
 import { BanksSearchSelect } from "./BanksSearchSelect";
+import { BANKS_LIST } from "@constants/banks";
 
 interface BankcardSectionState {
 	currencies: { id: string; title: string }[];
 	searchCurrencies: { id: string; title: string }[];
-	// banksData: { id: string; title: string }[];
+	banksData: IBank[];
+	selectedCurrencyID: string;
 }
 
 export class BankcardSection extends Component<{}, BankcardSectionState> {
 	state = {
 		currencies: [],
 		searchCurrencies: [],
-		// banksData: [],
+		banksData: [],
+		selectedCurrencyID: "",
 	};
 
 	componentDidMount() {
@@ -30,10 +33,8 @@ export class BankcardSection extends Component<{}, BankcardSectionState> {
 	};
 
 	handleCurrencySelection = (id: string) => {
-		// const banksCoords = BANKS_LIST.filter((bank) =>
-		//   bank.currencies.includes(id),
-		// );
-		// this.setState({ banksCoords: banksCoords });
+		const banksData = BANKS_LIST.filter((bank) => bank.currencies.includes(id));
+		this.setState({ banksData, selectedCurrencyID: id });
 	};
 
 	render() {
@@ -48,7 +49,10 @@ export class BankcardSection extends Component<{}, BankcardSectionState> {
 					setSearchCurrencies={this.updateSearchCurrencies}
 					onCurrencySelection={this.handleCurrencySelection}
 				/>
-				<MapComponent />
+				{this.state.selectedCurrencyID && (
+					<CurrencyTitle>{this.state.selectedCurrencyID}</CurrencyTitle>
+				)}
+				<MapComponent banksData={this.state.banksData} />
 			</BankcardSectionContainer>
 		);
 	}
