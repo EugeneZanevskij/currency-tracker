@@ -14,3 +14,9 @@ export const Title = styled.h2`
 	color: ${({ theme }) => theme.textColor};
 	text-align: center;
 `;
+
+export const CurrencyTitle = styled.h3`
+	font-size: 1.5rem;
+	font-weight: 400;
+	margin-bottom: 1rem;
+`;
