@@ -43,3 +43,12 @@ interface IMapboxMap {
 	zoom: number;
 	attributionControl: boolean;
 }
+
+interface IBank {
+	id: number;
+	title: string;
+	address: string;
+	latitude: string;
+	longitude: string;
+	currencies: string[];
+}
