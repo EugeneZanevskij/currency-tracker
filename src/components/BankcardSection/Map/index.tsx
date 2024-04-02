@@ -5,13 +5,7 @@ import { INITIAL_MAP } from "@constants/map";
 import { MapContainer } from "./styled";
 
 interface MapProps {
-	banksData: {
-		id: number;
-		title: string;
-		latitude: string;
-		longitude: string;
-		currencies: string[];
-	}[];
+	banksData: IBank[];
 }
 
 class MapComponent extends React.Component<MapProps> {
@@ -58,7 +52,11 @@ class MapComponent extends React.Component<MapProps> {
 		banksData.forEach((bank) => {
 			const marker = new mapboxgl.Marker()
 				.setLngLat([+bank.longitude, +bank.latitude])
-				.setPopup(new mapboxgl.Popup().setHTML(`<h4>${bank.title}</h4>`))
+				.setPopup(
+					new mapboxgl.Popup().setHTML(
+						`<div><h4>${bank.title}</h4><p>${bank.address}</p></div>`
+					)
+				)
 				.addTo(this.map!);
 
 			this.markers.push(marker);
