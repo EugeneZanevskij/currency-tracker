@@ -14,9 +14,5 @@
   },
   "plugins": [
     "react"
-  ],
-  "rules": {
-    "arrow-body-style": "off",
-    "react/forbid-prop-types": "off"
-  }
+  ]
 }

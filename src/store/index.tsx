@@ -9,7 +9,7 @@ interface IThemeContext {
 
 const CACHE_THEME_KEY = getEnvVars("cacheThemeKey");
 
-const ThemeContext = createContext<IThemeContext>({} as IThemeContext);
+const ThemeContext = createContext<IThemeContext>({} as IThemeContext); // TODO:Прописать тему
 
 function AppThemeProvider({ children }: { children: JSX.Element }) {
 	const [theme, setTheme] = useState<IThemeContext["theme"]>(

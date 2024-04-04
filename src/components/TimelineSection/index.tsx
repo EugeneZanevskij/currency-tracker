@@ -162,7 +162,6 @@ export class TimelineSection extends Component {
 				)}
 				{showChart && <TimelineChart id={selectedCurrency.id} />}
 				{showNotification && <NotificationsModal notification={notification} />}
-				<TimelineChart id={selectedCurrency.id} />
 			</Container>
 		);
 	}

@@ -29,6 +29,13 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true
 	},
-	"include": ["src", "custom.d.ts"],
+	"types": ["@testing-library/jest-dom"],
+	"include": [
+		"src",
+		"__tests__",
+		"test.config.ts",
+		"custom.d.ts",
+		"test-setup.ts"
+	],
 	"exclude": ["node_modules"]
 }
